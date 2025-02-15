@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import MenuSection from "../../components/MenuSection/MenuSection";
 import CartPage from "../CartPage/CartPage";
-import "./OrderPage.css";
+import "./orderpage.css";
 
 const OrderPage = () => {
   const [menuItems, setMenuItems] = useState([
