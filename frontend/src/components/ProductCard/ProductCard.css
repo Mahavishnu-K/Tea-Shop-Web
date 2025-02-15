@@ -1,0 +1,147 @@
+.product-card {
+    position: relative;
+    width: 280px;
+    background: white;
+    border-radius: 10px;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+    padding: 16px;
+    text-align: center;
+  }
+  
+  /* Favorite Icon */
+  .favorite-icon {
+    position: absolute;
+    top: 0;
+    right: 0;
+    background: #f97316;
+    padding: 10px;
+    border-top-right-radius: 10px;
+    border-bottom-left-radius: 10px;
+  }
+  
+  .heart-icon {
+    color: white;
+    font-size: 20px;
+  }
+  
+  /* Product Image */
+  .image-container {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 10px;
+  }
+  
+  .product-image {
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+  }
+  
+  /* Product Info */
+  .product-info {
+    text-align: center;
+  }
+  
+  .product-title {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 5px;
+  }
+  
+  .product-description {
+    font-size: 14px;
+    color: gray;
+    margin-bottom: 10px;
+  }
+  
+  /* Price and Rating */
+  .product-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 10px;
+  }
+  
+  .product-price {
+    color: #f97316;
+    font-size: 18px;
+    font-weight: bold;
+  }
+  
+  .product-rating {
+    display: flex;
+    align-items: center;
+    font-size: 14px;
+    color: #444;
+  }
+  
+  .star-icon {
+    color: gold;
+    margin-right: 5px;
+    font-size: 16px;
+  }
+  
+  @media screen and (max-width: 768px) {
+    .product-card {
+      width: 90%;
+      max-width: 300px;
+      margin: auto;
+      padding: 12px;
+    }
+  
+    .product-image {
+      width: 120px;
+      height: 120px;
+    }
+  
+    .product-title {
+      font-size: 16px;
+    }
+  
+    .product-description {
+      font-size: 12px;
+    }
+  
+    .product-price {
+      font-size: 16px;
+    }
+  
+    .product-footer {
+      padding: 0 5px;
+    }
+  }
+  
+  @media screen and (max-width: 480px) {
+    .product-card {
+      width: 100%;
+      padding: 10px;
+    }
+  
+    .product-image {
+      width: 100px;
+      height: 100px;
+    }
+  
+    .product-title {
+      font-size: 14px;
+    }
+  
+    .product-description {
+      font-size: 12px;
+    }
+  
+    .product-price {
+      font-size: 14px;
+    }
+  
+    .star-icon {
+      font-size: 14px;
+      margin-right: 3px;
+    }
+  
+    .product-footer {
+      flex-direction: column;
+      gap: 5px;
+    }
+  }
+  

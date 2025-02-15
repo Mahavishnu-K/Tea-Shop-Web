@@ -1,0 +1,248 @@
+.navbar-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 2rem;
+    height: 70px;
+    background: rgba(255, 255, 255, 0.95);
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    transition: all 0.3s ease;
+    border-bottom: 1px solid lightgray;
+}
+
+.navbar-scrolled {
+    background: white;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Logo */
+.navbar-logo-text {
+    font-size: 1.5rem;
+    font-weight: bold;
+    background: linear-gradient(45deg, #f18a25, #f16025);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+/* Navigation Links */
+.navbar-nav-links {
+    display: flex;
+    gap: 2rem;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.navbar-nav-item {
+    position: relative;
+    padding: 0.5rem 0;
+    cursor: pointer;
+}
+
+.navbar-nav-item span {
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+    color: #333;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+.navbar-nav-item:hover span,
+.navbar-nav-item.navbar-active span {
+    color: #f18a25;
+}
+
+/* Dropdown */
+.navbar-dropdown-icon {
+    transition: transform 0.2s ease;
+}
+
+.navbar-has-dropdown:hover .navbar-dropdown-icon {
+    transform: rotate(180deg);
+}
+
+.navbar-dropdown-menu {
+    position: absolute;
+    top: 100%;
+    left: -1rem;
+    width: 200px;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(10px);
+    transition: all 0.3s ease;
+}
+
+.navbar-has-dropdown:hover .navbar-dropdown-menu {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.navbar-dropdown-content {
+    margin-top: 0.5rem;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+}
+
+.navbar-dropdown-link {
+    display: block;
+    padding: 0.75rem 1rem;
+    color: #333;
+    text-decoration: none;
+    transition: all 0.2s ease;
+}
+
+.navbar-dropdown-link:hover {
+    background: #fff5eb;
+    color: #f18a25;
+}
+
+/* Icons Section */
+.navbar-icons {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.navbar-icon-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border: none;
+    background: transparent;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.navbar-icon-btn:hover {
+    background: #f5f5f5;
+}
+
+.navbar-icon {
+    width: 20px;
+    height: 20px;
+    color: #333;
+}
+
+/* Cart Badge */
+.navbar-cart {
+    position: relative;
+}
+
+.navbar-badge {
+    position: absolute;
+    top: -2px;
+    right: -2px;
+    background: #f18a25;
+    color: white;
+    font-size: 0.75rem;
+    font-weight: bold;
+    min-width: 18px;
+    height: 18px;
+    border-radius: 9px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 5px;
+}
+
+/* Contact Button */
+.navbar-contact-btn {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem 1.25rem;
+    background: #f18a25;
+    color: white;
+    border: none;
+    border-radius: 25px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-family: 'Poppins', sans-serif !important;
+}
+
+.navbar-contact-btn:hover {
+    background: #e67d1a;
+}
+
+.navbar-btn-icon {
+    width: 14px;
+    height: 14px;
+}
+
+/* Mobile Menu */
+.navbar-menu-toggle {
+    display: none;
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+    padding: 0.5rem;
+    color: #333;
+}
+
+.navbar-mobile-menu {
+    display: none;
+    position: absolute;
+    top: 70px;
+    left: 0;
+    right: 0;
+    background: white;
+    padding: 1rem;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    transform: translateY(-100%);
+    opacity: 0;
+    transition: all 0.3s ease;
+}
+
+.navbar-mobile-menu.navbar-open {
+    transform: translateY(0);
+    opacity: 1;
+}
+
+.navbar-mobile-item {
+    padding: 1rem;
+    color: #333;
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+.navbar-mobile-item:hover,
+.navbar-mobile-item.navbar-active {
+    color: #f18a25;
+}
+
+.navbar-mobile-actions {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem;
+    border-top: 1px solid #eee;
+    margin-top: 1rem;
+}
+
+.navbar-mobile-contact {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    padding: 0.75rem;
+    background: #f18a25;
+    color: white;
+    border: none;
+    border-radius: 25px;
+    font-weight: 500;
+    cursor: pointer;
+}
