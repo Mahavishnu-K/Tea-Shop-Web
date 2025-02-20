@@ -1,0 +1,35 @@
+.shop-snacks{
+    padding: 50px;
+}
+
+.shop-header{
+    margin-bottom: 40px;
+    color: #FF6524;
+    position: relative;
+}
+
+.ul-list{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.combo-item-list{
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+.shop-header .shop-header-para{
+    color: rgb(84, 83, 83);
+    margin-bottom: 20px;
+}
+
+.bottom-line{
+    content: '';
+    bottom: 0;
+    left: 0;
+    height: 1px;
+    width: 100%;
+    background: rgba(113, 113, 113, 0.803);
+}

@@ -9,7 +9,7 @@ const MenuItem = ({ image, name, description, price, quantity, onIncrease, onDec
         <img src={image} className="menu-item-image" />
         <div className="menu-item-details">
             <h3>{name}</h3>
-            <p>{description}</p>
+            <p className="menu-item-para">{description}</p>
         </div>
         <div className="menu-item-actions">
             <div className="quantity-controls">

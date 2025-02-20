@@ -1,0 +1,16 @@
+.shop-heading{
+    font-family: "Abril Fatface", serif;
+    font-weight: 600;
+    font-size: 40px;
+    margin-left: 5%;
+    color: rgb(83, 83, 83);
+}
+
+.shop-heading{
+    transition: all 0.3s;
+}
+
+.shop-heading:hover{
+    cursor: grab;
+    transform: scale(1.03);
+}

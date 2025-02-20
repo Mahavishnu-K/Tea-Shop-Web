@@ -22,18 +22,226 @@
     height: 100%;
 }
 
+.soori {
+    display: block;
+    z-index: 20;
+    bottom: -6px;
+    left: -30%;
+    position: absolute;
+    animation: slidein 3.5s ease-in-out forwards;
+    transition: scale 0.3s;
+}
+
+.hero-soori {
+    display: block;
+    z-index: 20;
+    bottom: -40px;
+    right: -45%;
+    width: 620px;
+    height: 600px;
+    position: absolute;
+    transition: transform 0.3s;
+    animation: riseup 3.5s ease-in-out forwards;
+}
+
+@keyframes riseup {
+    0%{
+        right: -45%;
+    }
+    100%{
+        right: -9%;
+    }
+}
+
+.hero-text{
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 20%;
+    left: 42%;
+    align-items: center;
+    justify-content: center;
+}
+
+.hero-text .tea-text{
+    font-family: "DM Serif Text", serif;
+    color: #ffffff;
+    font-size: 120px;
+    z-index: 20;
+    font-weight: 400;
+    cursor: pointer;
+    transition: opacity 0.3s;
+}
+
+.hero-text .tea-text:hover{
+    opacity: 0;
+}
+
+.hero-text .tea-text:hover + .tea-cup-img{
+    transform: scale(1.05);
+    
+}
+
+.tea-cup-img{
+    position: absolute;
+    z-index: 19;
+    width: 250px;
+    height: 250px;
+    cursor: pointer;
+    transition: transform 0.3s;
+}
+
+.hero-text .pre1,.pre2{
+    font-family: "Style Script", serif;
+    font-weight: 400;
+    font-size: 60px;
+    z-index: 20;
+}
+
+.shopnow{
+    border: none;
+    position: absolute;
+    top: 100%;
+    z-index: 20;
+    border-radius: 15px;
+    padding: 10px;
+    width: 180px;
+    color: white;
+    background-color: #FF6524;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.shopnow:hover{
+    transform: scale(1.05);
+    box-shadow: 0px 0px 10px 0.5px #FF6524;
+}
+
+.shopnow pre{
+    font-family: "Poppins", serif;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 500;
+}
+
+.end-text .credit-text{
+    position: absolute;
+    top: 92%;
+    font-family: "Princess Sofia", serif;
+    color: #682a0f;
+    font-size: 30px;
+    left: 35.5%;
+}
+
+.hero-soori:hover{
+    transform: scale(1.05);
+}
+
+@keyframes slidein {
+    0% {
+        left: -30%;
+    }
+    100% {
+        left: 0;
+    }
+}
+
+.soori:hover {
+    scale: 1.05;
+}
+
+.text-img .text-msg {
+    z-index: 19;
+    position: absolute;
+    top: 35%;
+    opacity: 0;
+    transform: scale(0.7);
+}
+
+.soori-img:hover ~ .text-img .text-msg {
+    animation: textpop 0.5s ease-in-out forwards;
+}
+
+.soori-img:not(:hover) ~ .text-img .text-msg {
+    animation: textpop-reverse 0.4s ease-in-out forwards;
+}
+
+@keyframes textpop {
+    0% {
+        top: 35%;
+        left: 1%;
+        opacity: 0;
+        transform: scale(0.7);
+    }
+
+    100% {
+        top: 2%;
+        left: 15%;
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+@keyframes textpop-reverse {
+    0% {
+        top: 2%;
+        left: 15%;
+        opacity: 1;
+        transform: scale(1);
+    }
+    100% {
+        top: 35%;
+        left: 1%;
+        opacity: 0;
+        transform: scale(0.7);
+    }
+}
+
 .image-wrapper {
     display: flex;
     justify-content: center;
     align-items: center;
+    position: absolute;
+    z-index: 1;
+    transition: opacity 1s ease-in-out, transform 0.5s ease-in-out;
 }
-  
+
 .ellipse-image {
-width: 100%;
-height: 100%;
-object-fit: cover;
-border-radius: 50%;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+    z-index: 2; 
 }
+
+.fade-in {
+    animation: fadeIn 1s ease-in-out forwards, fadeOut 0.5s ease-in-out forwards 1s;
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+        transform: scale(0.8);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/* Fade out effect (starts 1 second after fade-in completes) */
+@keyframes fadeOut {
+    0% {
+        opacity: 1;
+        transform: scale(1);
+    }
+    100% {
+        opacity: 0;
+        transform: scale(0.8);
+    }
+}
+
 
 .home-page-popular-categories-section,
 .home-page-special-dishes-section {

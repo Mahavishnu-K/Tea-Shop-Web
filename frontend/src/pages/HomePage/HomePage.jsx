@@ -1,39 +1,23 @@
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 import React, { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { CiDeliveryTruck, CiGift } from "react-icons/ci";
 import { FaChevronLeft, FaChevronRight } from "react-icons/fa6";
 import { IoCartOutline, IoFastFoodOutline } from "react-icons/io5";
 import ProductCard from '../../components/ProductCard/ProductCard';
 import Testimonial from '../../components/Testimonials/Testimonials';
+import heroImg from '../../assets/herosection/hero.png';
+import teacup from '../../assets/herosection/teacup.png';
+import { IoIosArrowRoundForward } from "react-icons/io";
+import herosoori from '../../assets/herosection/herosoori.png';
+import textmsg from '../../assets/herosection/text.png';
 import ecp1 from '../../assets/herosection/Ellipse.png';
-import ecp2 from '../../assets/herosection/Ellipse.png';
-import ecp3 from '../../assets/herosection/Ellipse.png';
-import ecp4 from '../../assets/herosection/Ellipse.png';
-import ecp5 from '../../assets/herosection/Ellipse.png';
-import ecp6 from '../../assets/herosection/Ellipse.png';
-import ecp7 from '../../assets/herosection/Ellipse.png';
-import ecp8 from '../../assets/herosection/Ellipse.png';
-import ecp9 from '../../assets/herosection/Ellipse.png';
-import ecp10 from '../../assets/herosection/Ellipse.png';
-import ecp11 from '../../assets/herosection/Ellipse.png';
-import ecp12 from '../../assets/herosection/Ellipse.png';
-import ecp13 from '../../assets/herosection/Ellipse.png';
-import ecp14 from '../../assets/herosection/Ellipse.png';
-import ecp15 from '../../assets/herosection/Ellipse.png';
-import ecp16 from '../../assets/herosection/Ellipse.png';
-import ecp17 from '../../assets/herosection/Ellipse.png';
-import ecp18 from '../../assets/herosection/Ellipse.png';
-import ecp19 from '../../assets/herosection/Ellipse.png';
-import ecp20 from '../../assets/herosection/Ellipse.png';
-import ecp21 from '../../assets/herosection/Ellipse.png';
-import ecp22 from '../../assets/herosection/Ellipse.png';
-import ecp23 from '../../assets/herosection/Ellipse.png';
-import ecp24 from '../../assets/herosection/Ellipse.png';
 
 import './HomePage.css';
 
 const CategoryCard = ({ img, categoryName, noOfCombos }) => {
+    
     return (
         <div className="home-page-popular-categories-item">
             <div className="home-page-popular-categories-item-image">
@@ -46,6 +30,7 @@ const CategoryCard = ({ img, categoryName, noOfCombos }) => {
 };
 
 const HomePage = () => {
+    const[tea,setTea]  = useState("TEA");
     const categories = [
         { img: 'burger.jpg', categoryName: 'Tea', noOfCombos: 18 },
         { img: 'pizza.jpg', categoryName: 'Bun', noOfCombos: 23 },
@@ -100,57 +85,139 @@ const HomePage = () => {
     const startIndex = (currentPage - 1) * itemsPerPage;
     const currentProducts = products.slice(startIndex, startIndex + itemsPerPage);
 
-    const images = [
-        { src: ecp1, top: "5%", left: "5%", size: "90px" },
-        { src: ecp2, top: "10%", left: "15%", size: "150px" },
-        { src: ecp3, top: "20%", left: "2%", size: "250px" },
-        { src: ecp4, top: "10%", left: "60%", size: "50px" },
-        { src: ecp5, top: "45%", left: "35%", size: "200px" },
-        { src: ecp6, top: "55%", left: "70%", size: "70px" },
-        { src: ecp7, top: "65%", left: "50%", size: "130px" },
-        { src: ecp8, top: "80%", left: "40%", size: "110px" },
-        { src: ecp9, top: "25%", left: "85%", size: "180px" },
-        { src: ecp10, top: "10%", left: "45%", size: "100px" },
-        { src: ecp11, top: "50%", left: "15%", size: "160px" },
-        { src: ecp12, top: "75%", left: "75%", size: "140px" },
-        { src: ecp13, top: "30%", left: "5%", size: "90px" },
-        { src: ecp14, top: "70%", left: "55%", size: "120px" },
-        { src: ecp15, top: "40%", left: "80%", size: "110px" },
-        { src: ecp16, top: "90%", left: "10%", size: "130px" },
-        { src: ecp17, top: "5%", left: "75%", size: "150px" },
-        { src: ecp18, top: "15%", left: "55%", size: "170px" },
-        { src: ecp19, top: "60%", left: "25%", size: "90px" },
-        { src: ecp20, top: "12%", left: "80%", size: "200px" },
-        { src: ecp21, top: "50%", left: "90%", size: "100px" },
-        { src: ecp22, top: "85%", left: "20%", size: "70px" },
-        { src: ecp23, top: "55%", left: "40%", size: "190px" },
-        { src: ecp24, top: "35%", left: "70%", size: "250px" },
-      ];
-      
-      
+    const initialImages = [
+        { src: ecp1, top: "3%", left: "6%", size: "110px" },
+        { src: ecp1, top: "5%", left: "17%", size: "150px" },
+        { src: ecp1, top: "25%", left: "2%", size: "250px" },
+        { src: ecp1, top: "5%", left: "53%", size: "50px" },
+        { src: ecp1, top: "20%", left: "30%", size: "200px" },
+        { src: ecp1, top: "55%", left: "60%", size: "70px" },
+        { src: ecp1, top: "40%", left: "45%", size: "130px" },
+        { src: ecp1, top: "75%", left: "27%", size: "170px" },
+        { src: ecp1, top: "59%", left: "52%", size: "80px" },
+        { src: ecp1, top: "45%", left: "58%", size: "40px" },
+        { src: ecp1, top: "30%", left: "65%", size: "170px" },
+        { src: ecp1, top: "16%", left: "68%", size: "50px" },
+        { src: ecp1, top: "18%", left: "77%", size: "80px" },
+        { src: ecp1, top: "1%", left: "62%", size: "80px" },
+        { src: ecp1, top: "7%", left: "43%", size: "100px" },
+        { src: ecp1, top: "60%", left: "15%", size: "160px" },
+        { src: ecp1, top: "75%", left: "83%", size: "180px" },
+        { src: ecp1, top: "35%", left: "22%", size: "70px" },
+        { src: ecp1, top: "55%", left: "38%", size: "50px" },
+        { src: ecp1, top: "65%", left: "2%", size: "80px" },
+        { src: ecp1, top: "75%", left: "55%", size: "120px" },
+        { src: ecp1, top: "34%", left: "79%", size: "110px" },
+        { src: ecp1, top: "54%", left: "79%", size: "50px" },
+        { src: ecp1, top: "80%", left: "2%", size: "200px" },
+        { src: ecp1, top: "-10%", left: "70%", size: "150px" },
+        { src: ecp1, top: "15%", left: "53%", size: "170px" },
+        { src: ecp1, top: "55%", left: "29%", size: "90px" },
+        { src: ecp1, top: "3%", left: "85%", size: "200px" },
+        { src: ecp1, top: "38%", left: "90%", size: "140px" },
+        { src: ecp1, top: "60%", left: "95%", size: "150px" },
+        { src: ecp1, top: "87%", left: "20%", size: "70px" },
+        { src: ecp1, top: "65%", left: "40%", size: "190px" },
+        { src: ecp1, top: "60%", left: "65%", size: "250px" },
+        { src: ecp1, top: "61%", left: "85%", size: "60px" },
+        { src: ecp1, top: "-25%", left: "27%", size: "250px" },
+    ];
+    
+    const [images, setImages] = useState(initialImages);
+    const [duplicatedIndexes, setDuplicatedIndexes] = useState([]);
+    const [fadeInIndexes, setFadeInIndexes] = useState([]);
+
+    useEffect(() => {
+        const interval = setInterval(() => {
+            setImages((prevImages) => {
+                const cleanedImages = prevImages.filter((_, index) => !duplicatedIndexes.includes(index));
+
+                const uniqueIndexes = new Set();
+                while (uniqueIndexes.size < 8) {
+                    const randomIndex = Math.floor(Math.random() * cleanedImages.length);
+                    uniqueIndexes.add(randomIndex);
+                }
+                const selectedIndexes = [...uniqueIndexes];
+
+                const newDuplicates = selectedIndexes.map((index) => ({
+                    ...cleanedImages[index],
+                    duplicated: true,
+                }));
+
+                setFadeInIndexes(selectedIndexes);
+
+                setDuplicatedIndexes(selectedIndexes);
+                return [...cleanedImages, ...newDuplicates];
+            });
+
+            setTimeout(() => setFadeInIndexes([]), 1000);
+        }, 2000);
+
+        return () => clearInterval(interval);
+    }, [duplicatedIndexes]);
+
+    const navigate = useNavigate();
+
+    const shopNavigate = () => {
+        navigate('/shop');
+    }
+
+    const [isVisible, setIsVisible] = useState(false);
+
+    useEffect(() => {
+        const timer = setTimeout(() => {
+            setIsVisible(true);
+        }, 3000);
+
+        return () => clearTimeout(timer); 
+    }, []);
 
     return (
         <div className="home-page-container">
             {/* Hero Section */}
             <section className="home-page-hero-section">
 
-                <div className="home-page-hero-image">
+            <div className="home-page-hero-image">
                     {images.map((image, index) => (
                         <div
                             key={index}
-                            className="image-wrapper"
+                            className={`image-wrapper ${fadeInIndexes.includes(index) ? "fade-in" : ""}`}
                             style={{
-                            width: image.size,
-                            height: image.size,
-                            position: "absolute",
-                            top: image.top,
-                            left: image.left,
+                                width: image.size,
+                                height: image.size,
+                                position: "absolute",
+                                top: image.top,
+                                left: image.left,
+                                opacity: fadeInIndexes.includes(index) ? 0 : 1, 
+                                transition: "opacity 1s ease-in-out",
                             }}
                         >
-                        <div className="ring"></div>
+                            <div className="ring"></div>
                             <img src={image.src} alt="ellipse" className="ellipse-image" />
                         </div>
                     ))}
+                </div>
+                <div className='soori-img'>
+                        <img src={heroImg} className="soori" alt="Hero image" />
+                        <img src={herosoori} className="hero-soori" alt="Hero image" />
+                </div>
+                <div className='text-img' style={{ opacity: isVisible ? "1" : "0" }}>
+                    <img src={textmsg} className="text-msg" alt="text image" />
+                </div>
+                
+                <div className='hero-text'>
+                    <pre className='pre1'>The  Best </pre>
+                    <pre className='tea-text'>{tea}</pre>
+                    <img src={teacup} className='tea-cup-img' alt="tea cup image" />
+                    <pre className='pre2'>For  you</pre>
+
+                    <button className='shopnow' onClick={shopNavigate}><pre>         SHOP NOW        <IoIosArrowRoundForward size={24}/></pre></button>
+                </div>
+                
+
+                <div className='end-text'>
+                    <pre className='credit-text'>Every day is unique, just like our tea</pre>
+
                 </div>
             </section>
 

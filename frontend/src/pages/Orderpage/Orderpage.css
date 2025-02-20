@@ -49,7 +49,7 @@
     margin: 0;
   }
   
-  .menu-item p {
+  .menu-item .menu-item-para {
     font-size: 13px;
     color: #666;
     margin: 5px 0 0;

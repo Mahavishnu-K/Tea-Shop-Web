@@ -1,7 +1,8 @@
 .navbar-container {
     display: flex;
-    justify-content: space-between;
     align-items: center;
+    justify-content: space-between;
+    gap: 100px;
     padding: 0 2rem;
     height: 70px;
     background: rgba(255, 255, 255, 0.95);
@@ -19,19 +20,19 @@
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
 }
 
-/* Logo */
 .navbar-logo-text {
     font-size: 1.5rem;
     font-weight: bold;
+    margin-left: 4%;
     background: linear-gradient(45deg, #f18a25, #f16025);
-    -webkit-background-clip: text;
+    background-clip: text;
     -webkit-text-fill-color: transparent;
 }
 
-/* Navigation Links */
 .navbar-nav-links {
     display: flex;
-    gap: 2rem;
+    margin-left: 30%;
+    justify-content: end;
     list-style: none;
     margin: 0;
     padding: 0;
@@ -43,66 +44,19 @@
     cursor: pointer;
 }
 
-.navbar-nav-item span {
+.navbar-nav-item .text-span {
     display: flex;
     align-items: center;
-    gap: 0.25rem;
     color: #333;
     font-weight: 500;
     transition: color 0.3s ease;
 }
 
-.navbar-nav-item:hover span,
-.navbar-nav-item.navbar-active span {
+.navbar-nav-item:hover .text-span,
+.navbar-nav-item.navbar-active .text-span {
     color: #f18a25;
 }
 
-/* Dropdown */
-.navbar-dropdown-icon {
-    transition: transform 0.2s ease;
-}
-
-.navbar-has-dropdown:hover .navbar-dropdown-icon {
-    transform: rotate(180deg);
-}
-
-.navbar-dropdown-menu {
-    position: absolute;
-    top: 100%;
-    left: -1rem;
-    width: 200px;
-    opacity: 0;
-    visibility: hidden;
-    transform: translateY(10px);
-    transition: all 0.3s ease;
-}
-
-.navbar-has-dropdown:hover .navbar-dropdown-menu {
-    opacity: 1;
-    visibility: visible;
-    transform: translateY(0);
-}
-
-.navbar-dropdown-content {
-    margin-top: 0.5rem;
-    background: white;
-    border-radius: 8px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-    overflow: hidden;
-}
-
-.navbar-dropdown-link {
-    display: block;
-    padding: 0.75rem 1rem;
-    color: #333;
-    text-decoration: none;
-    transition: all 0.2s ease;
-}
-
-.navbar-dropdown-link:hover {
-    background: #fff5eb;
-    color: #f18a25;
-}
 
 /* Icons Section */
 .navbar-icons {
@@ -115,27 +69,28 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 40px;
-    height: 40px;
+    width: 120px;
+    font-size: 16px;
+    gap: 10px;
+    padding: 10px 15px;
+    font-family: "Poppins" ,"serif";
     border: none;
+    color: #333;
+    font-weight: 500;
     background: transparent;
-    border-radius: 50%;
+    border-radius: 30px;
     cursor: pointer;
     transition: all 0.2s ease;
 }
 
 .navbar-icon-btn:hover {
-    background: #f5f5f5;
+    background: #ece9e9ee;
+    color: #f18a25;
 }
 
-.navbar-icon {
-    width: 20px;
-    height: 20px;
-    color: #333;
-}
-
-/* Cart Badge */
 .navbar-cart {
+    display: flex;
+    gap: 10px;
     position: relative;
 }
 
