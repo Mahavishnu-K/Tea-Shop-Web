@@ -9,6 +9,30 @@
 
 }
 
+.buns-card-container{
+    max-height: 400px;  
+    overflow-y: auto;  
+}
+
+.buns-card-container::-webkit-scrollbar {
+    width: 8px; 
+}
+
+.buns-card-container::-webkit-scrollbar-track {
+    background: #fdd1beb6; 
+    border-radius: 10px;
+}
+
+.buns-card-container::-webkit-scrollbar-thumb {
+    background: #fc6626b6; 
+    border-radius: 10px;
+}
+
+.buns-card-container::-webkit-scrollbar-thumb:hover {
+    background: #fe5a13db; 
+    cursor: pointer;
+}
+
 .ul-list{
     display: flex;
     align-items: center;

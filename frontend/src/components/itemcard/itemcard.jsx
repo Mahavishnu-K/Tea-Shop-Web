@@ -4,7 +4,7 @@ import { FaIndianRupeeSign } from "react-icons/fa6";
 import { FaCartShopping } from "react-icons/fa6";
 import './itemcard.css';
 
-export default function ItemCard({ image, title, description, price, cartItems, setCartItems }) {
+export default function ItemCard({ image, title, description, price, cartItems, setCartItems, page }) {
   const [quantity, setQuantity] = useState(1);
 
   const increaseQuantity = () => setQuantity(quantity + 1);
@@ -13,22 +13,23 @@ export default function ItemCard({ image, title, description, price, cartItems, 
   const addToCart = () => {
     console.log("Adding Item:", title);
 
-    const existingItem = cartItems.find((item) => item.title === title);
+    const updatedCart = [...cartItems];
+    const existingItem = updatedCart.find((item) => item.title === title);
 
     if (existingItem) {
-      setCartItems(
-        cartItems.map((item) =>
-          item.title === title ? { ...item, quantity: item.quantity + quantity } : item
-        )
-      );
+      existingItem.quantity += quantity;
     } else {
-      setCartItems([...cartItems, { image, title, description, price, quantity }]);
+      updatedCart.push({ image, title, description, price, quantity });
     }
 
-    setQuantity(1);
+    setCartItems(updatedCart);
+    localStorage.setItem("cartItems", JSON.stringify(updatedCart)); 
+
+    setQuantity(1); 
   };
 
   
+
   return (
     <div className="cart-item">
       <div className="cart-item-left">

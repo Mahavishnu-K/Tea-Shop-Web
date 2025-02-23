@@ -69,6 +69,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    position: relative;
     width: 120px;
     font-size: 16px;
     gap: 10px;
@@ -83,6 +84,22 @@
     transition: all 0.2s ease;
 }
 
+.cart-count {
+    position: absolute;
+    top: 4px;
+    right: 14px;
+    background-color: #f18a25;
+    color: white;
+    font-size: 12px;
+    font-weight: bold;
+    width: 17px;
+    height: 17px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+  }
+
 .navbar-icon-btn:hover {
     background: #ece9e9ee;
     color: #f18a25;
@@ -91,7 +108,6 @@
 .navbar-cart {
     display: flex;
     gap: 10px;
-    position: relative;
 }
 
 .navbar-badge {

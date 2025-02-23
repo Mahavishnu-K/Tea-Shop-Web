@@ -8,6 +8,30 @@
     position: relative;
 }
 
+.cold-card-container{
+    max-height: 400px;  
+    overflow-y: auto;  
+}
+
+.cold-card-container::-webkit-scrollbar {
+    width: 8px; /* Scrollbar width */
+}
+
+.cold-card-container::-webkit-scrollbar-track {
+    background: #fdd1beb6; /* Light background for the track */
+    border-radius: 10px;
+}
+
+.cold-card-container::-webkit-scrollbar-thumb {
+    background: #fc6626b6; /* Orange color */
+    border-radius: 10px;
+}
+
+.cold-card-container::-webkit-scrollbar-thumb:hover {
+    background: #fe5a13db; 
+    cursor: pointer;
+}
+
 .ul-list{
     display: flex;
     align-items: center;

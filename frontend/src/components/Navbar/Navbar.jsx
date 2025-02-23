@@ -1,15 +1,20 @@
 import { useEffect, useState } from "react";
 import { FiPhone, FiSearch, FiShoppingCart } from "react-icons/fi";
 import { IoFastFoodOutline } from "react-icons/io5";
+import { BsShop } from "react-icons/bs";
 import './Navbar.css';
 import { useNavigate } from "react-router-dom";
 
-const Navbar = () => {
+const Navbar = ({ cartItems }) => {
   const [menuOpen, setMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const navigate = useNavigate();
   const shopNavigate = () => {
       navigate('/shop');
+  }
+
+  const homeNavigate = () => {
+    navigate('/')
   }
 
   const cartNavigate = () => {
@@ -24,6 +29,16 @@ const Navbar = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  const scrollToFooter = () => {
+    const footer = document.getElementById("footer");
+    if (footer) {
+      window.scrollTo({
+        top: footer.offsetTop,
+        behavior: "smooth",
+      });
+    }
+  };
+
   return (
     <nav className={`navbar-container ${isScrolled ? "navbar-scrolled" : ""}`}>
       <div className="navbar-logo">
@@ -32,7 +47,12 @@ const Navbar = () => {
 
       <div className="navbar-icons">
         <div className="navbar-cart">
-        
+
+          <button onClick={homeNavigate} className="navbar-icon-btn">
+            <span>Home</span>
+            <BsShop size={20}/>
+          </button>
+
           <button onClick={shopNavigate} className="navbar-icon-btn">
             <span>Menu</span>
             <IoFastFoodOutline size={21} />
@@ -40,12 +60,13 @@ const Navbar = () => {
 
           <button onClick={cartNavigate} className="navbar-icon-btn">
             <span>Cart</span>
-            <FiShoppingCart size={20} />
+            <FiShoppingCart size={20}/>
+            {cartItems.length > 0 && <span className="cart-count">{cartItems.length}</span>}
           </button>
           
           
         </div>
-        <button className="navbar-contact-btn">
+        <button onClick={scrollToFooter} className="navbar-contact-btn">
           <FiPhone className="navbar-btn-icon" />
           <span>Contact</span>
         </button>

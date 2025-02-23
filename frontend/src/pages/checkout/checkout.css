@@ -1,0 +1,182 @@
+.checkout-wrapper {
+    margin-left: 10%;
+    display: flex;
+    gap: 10px;
+  }
+
+.checkout-container {
+    flex: 1;
+    padding: 20px;
+    max-width: 700px;
+    margin: auto;
+    background: white;
+    font-family: "Poppins" , serif;
+    border-radius: 10px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+  }
+  
+  .checkout-header{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 2%;
+    font-size: 35px;
+    font-weight: 650;
+    color: rgb(83, 83, 83);
+  }
+
+  .billing-title {
+    font-size: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 600;
+    margin-bottom: 30px;
+  }
+  
+  .form-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+    margin-bottom: 15px;
+  }
+  
+  .form-group {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .phone-group {
+    display: flex;
+    align-items: center;
+  }
+  
+  .phone-container {
+    display: flex;
+    width: 100%;
+    align-items: flex-end;
+  }
+  
+  .phone-input {
+    flex: 1;
+    font-family: "Poppins" , serif;
+  }
+
+  .phone-input-wrapper{
+    width: 100%;
+    display: flex;
+    border: 1px solid #ccc;
+    height: 39px;
+    font-family: "Poppins" , serif;
+    border-radius: 5px;
+  }
+
+  .wrapper-input{
+    font-family: "Poppins" , serif;
+    border: none;
+    outline-style: none;
+    margin-left: 8px;
+  }
+  
+  .country-code {
+    padding: 5px 10px;
+    border-right: 1px solid #ccc;
+    font-weight: 500;
+    font-size: 15px;
+    color: #888888;
+  }
+  
+  .otp-button {
+    background-color: #ff6600;
+    color: white;
+    border: none;
+    padding: 8px 12px;
+    font-family: "Poppins" , serif;
+    margin-left: 10px;
+    cursor: pointer;
+    border-radius: 5px;
+  }
+  
+  .otp-button:hover {
+    background-color: #e65c00;
+  }
+  
+  .input-field {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    font-family: "Poppins" , serif;
+    border-radius: 5px;
+    outline-style: none;
+  }
+  
+.address{
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    outline-style: none;
+    font-family: "Poppins" , serif;
+    border-radius: 5px;
+}
+
+  label {
+    font-size: 14px;
+    font-weight: 600;
+    font-family: "Poppins" , serif;
+    margin-bottom: 5px;
+  }
+  
+  .order-summary {
+    flex: 1;
+    padding: 20px;
+    min-height: 420px;
+    max-width: 400px;
+    position: relative;
+    margin: auto;
+    background: white;
+    font-family: "Poppins" , serif;
+    border-radius: 10px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+  }
+  
+  .order-summary .order-summary-header {
+    margin-bottom: 15px;
+    text-align: center;
+    font-size: 24px;
+    font-weight: 600;
+    margin-bottom: 30px;
+  }
+  
+  .order-items {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  
+  .order-item {
+    display: flex;
+    justify-content: space-between;
+    font-size: 16px;
+  }
+  
+  .order-total {
+    display: flex;
+    justify-content: space-between;
+    font-size: 20px;
+    font-weight: 550;
+  }
+  
+  .checkout-button-confirm {
+    width: 355px;
+    padding: 10px;
+    bottom: 5%;
+    position: absolute;
+    background: #ff6600;
+    border: none;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 5px;
+    font-family: "Poppins" , serif;
+    margin-top: 15px;
+  }

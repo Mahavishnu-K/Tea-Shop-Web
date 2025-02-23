@@ -2,10 +2,36 @@
     padding: 25px 50px;
 }
 
+
 .shop-header{
     margin-bottom: 40px;
     color: #FF6524;
 }
+
+.combo-card-container {
+    max-height: 400px;  
+    overflow-y: auto;  
+}
+
+.combo-card-container::-webkit-scrollbar {
+    width: 8px; 
+}
+
+.combo-card-container::-webkit-scrollbar-track {
+    background: #fdd1beb6; 
+    border-radius: 10px;
+}
+
+.combo-card-container::-webkit-scrollbar-thumb {
+    background: #fc6626b6; 
+    border-radius: 10px;
+}
+
+.combo-card-container::-webkit-scrollbar-thumb:hover {
+    background: #fe5a13db; 
+    cursor: pointer;
+}
+
 
 .ul-list{
     display: flex;

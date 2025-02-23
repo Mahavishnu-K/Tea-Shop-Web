@@ -9,8 +9,28 @@
 body {
 	font-family: 'Poppins', sans-serif !important;
 	padding-top: 90px;
+	overflow-x: hidden;
 }
 
 ul{
 	list-style: none;
+}
+
+::-webkit-scrollbar {
+	width: 8px; 
+  }
+  
+::-webkit-scrollbar-track {
+	background: transparent; 
+	border-radius: 10px;
+}
+  
+::-webkit-scrollbar-thumb {
+	background: #fc6626b6; 
+	border-radius: 10px;
+}
+  
+::-webkit-scrollbar-thumb:hover {
+	background: #fe5a13db; 
+	cursor: pointer;
 }
