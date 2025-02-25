@@ -2,13 +2,13 @@ import { initializeApp } from "firebase/app";
 import { getFirestore, collection, addDoc, getDoc, getDocs } from "firebase/firestore";
 
 const firebaseConfig = {
-  apiKey: "AIzaSyAxbcJpC3pYzwHjJw0v9hyzbk3EiXGRyU0",
-  authDomain: "camsoori-tea-shop.firebaseapp.com",
-  projectId: "camsoori-tea-shop",
-  storageBucket: "camsoori-tea-shop.firebasestorage.app",
-  messagingSenderId: "18061477530",
-  appId: "1:18061477530:web:ed6e497ae50114d5554123",
-  measurementId: "G-4MD9WC0V4G"
+  apiKey: process.env.FIREBASE_API_KEY,
+  authDomain: process.env.FIREBASE_AUTH_DOMAIN,
+  projectId: process.env.FIREBASE_PROJECT_ID,
+  storageBucket: process.env.FIREBASE_STORAGE_BUCKET,
+  messagingSenderId: process.env.FIREBASE_MESSAGING_SENDER_ID,
+  appId: process.env.FIREBASE_APP_ID,
+  measurementId: process.env.FIREBASE_MEASUREMENT_ID
 };
 
 const app = initializeApp(firebaseConfig);
