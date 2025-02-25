@@ -11,6 +11,7 @@
 .snack-card-container {
     max-height: 400px;  
     overflow-y: auto;  
+    overflow-x: hidden; 
 }
 
 .snack-card-container::-webkit-scrollbar {

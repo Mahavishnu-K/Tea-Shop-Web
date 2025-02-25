@@ -13,15 +13,23 @@ import { IoIosArrowRoundForward } from "react-icons/io";
 import herosoori from '../../assets/herosection/herosoori.png';
 import textmsg from '../../assets/herosection/text.png';
 import ecp1 from '../../assets/herosection/Ellipse.png';
+import normaltea from '../../assets/normaltea.png';
+import creambun from '../../assets/creambun.png';
+import orangejuice from '../../assets/orangejuice.png';
+import icecream from '../../assets/icecream.png';
+import muffin from '../../assets/muffin.png';
+import tart from '../../assets/tart.png';
+import strawberry from '../../assets/strawberry-cake.png';
+import background from '../../assets/herosection/background.png';
 
 import './HomePage.css';
 
-const CategoryCard = ({ img, categoryName, noOfCombos }) => {
+const CategoryCard = ({ img, categoryName, noOfCombos, classn }) => {
     
     return (
         <div className="home-page-popular-categories-item">
             <div className="home-page-popular-categories-item-image">
-                <img src={img} alt={categoryName} />
+                <img src={img} alt={categoryName} className={classn}/>
             </div>
             <div className="home-page-popular-categories-item-name">{categoryName}</div>
             <div className="home-page-popular-categories-item-price">({noOfCombos} Varieties)</div>
@@ -30,40 +38,43 @@ const CategoryCard = ({ img, categoryName, noOfCombos }) => {
 };
 
 const HomePage = () => {
-    const[tea,setTea]  = useState("TEA");
     const categories = [
-        { img: 'burger.jpg', categoryName: 'Tea', noOfCombos: 18 },
-        { img: 'pizza.jpg', categoryName: 'Bun', noOfCombos: 23 },
-        { img: 'sushi.jpg', categoryName: 'Beverages', noOfCombos: 3 },
-        { img: 'sushi.jpg', categoryName: 'All items', noOfCombos: '50+' },
+        { img: normaltea, categoryName: 'Tea', noOfCombos: 18 , classn: "tea-category"},
+        { img: creambun, categoryName: 'Bun', noOfCombos: 23, classn: "bun-category" },
+        { img: orangejuice, categoryName: 'Beverages', noOfCombos: 3, classn: "beverage-category" },
+        { img: icecream, categoryName: 'All items', noOfCombos: '50+', classn: "all-category" },
     ];
 
     const products = [
         {
-            image: "", // Add correct image path
+            image: creambun, // Add correct image path
             name: "Cream Bun",
             description: "A delicious cream-filled bun.",
             price: 99.0,
+            classna: "product-image",
             rating: 4.6,
         },
         {
-            image: "", // Add correct image path
+            image: muffin, 
             name: "Chocolate Muffin",
             description: "Soft and rich chocolate muffin.",
             price: 120.0,
+            classna: "product-image",
             rating: 4.8,
         },
         {
-            image: "", // Add correct image path
+            image: tart, 
             name: "Blueberry Tart",
             description: "Sweet and tangy blueberry tart.",
             price: 150.0,
+            classna: "product-image",
             rating: 4.7,
         },
         {
-            image: "", // Add correct image path
+            image: strawberry,
             name: "Strawberry Cake",
             description: "Fresh strawberry layered cake.",
+            classna: "strawberry",
             price: 200.0,
             rating: 4.9,
         },
@@ -172,30 +183,49 @@ const HomePage = () => {
         return () => clearTimeout(timer); 
     }, []);
 
+    const [isMobile, setIsMobile] = useState(false);
+
+    useEffect(() => {
+        const handleResize = () => {
+            setIsMobile(window.innerWidth <= 768);
+        };
+
+        handleResize();
+        window.addEventListener("resize", handleResize);
+
+        return () => {
+            window.removeEventListener("resize", handleResize);
+        };
+    }, []);
+    
     return (
         <div className="home-page-container">
             {/* Hero Section */}
             <section className="home-page-hero-section">
 
-            <div className="home-page-hero-image">
-                    {images.map((image, index) => (
-                        <div
-                            key={index}
-                            className={`image-wrapper ${fadeInIndexes.includes(index) ? "fade-in" : ""}`}
-                            style={{
-                                width: image.size,
-                                height: image.size,
-                                position: "absolute",
-                                top: image.top,
-                                left: image.left,
-                                opacity: fadeInIndexes.includes(index) ? 0 : 1, 
-                                transition: "opacity 1s ease-in-out",
-                            }}
-                        >
-                            <div className="ring"></div>
-                            <img src={image.src} alt="ellipse" className="ellipse-image" />
-                        </div>
-                    ))}
+                <div className="home-page-hero-image" 
+                    style={{
+                        backgroundImage: isMobile ? `url(${background})` : "none",
+                    }}
+                    >
+                    {!isMobile &&
+                        images.map((image, index) => (
+                            <div
+                                key={index}
+                                className="image-wrapper"
+                                style={{
+                                    width: image.size,
+                                    height: image.size,
+                                    position: "absolute",
+                                    top: image.top,
+                                    left: image.left,
+                                    transition: "opacity 1s ease-in-out",
+                                }}
+                            >
+                                <div className="ring"></div>
+                                <img src={image.src} alt="ellipse" className="ellipse-image" />
+                            </div>
+                        ))}
                 </div>
                 <div className='soori-img'>
                         <img src={heroImg} className="soori" alt="Hero image" />
@@ -205,9 +235,9 @@ const HomePage = () => {
                     <img src={textmsg} className="text-msg" alt="text image" />
                 </div>
                 
-                <div className='hero-text'>
+                <div className='hero-text' >
                     <pre className='pre1'>The  Best </pre>
-                    <pre className='tea-text'>{tea}</pre>
+                    <pre className='tea-text'>TEA</pre>
                     <img src={teacup} className='tea-cup-img' alt="tea cup image" />
                     <pre className='pre2'>For  you</pre>
 
@@ -230,6 +260,7 @@ const HomePage = () => {
                         <CategoryCard
                             key={index}
                             img={category.img}
+                            classn={category.classn}
                             categoryName={category.categoryName}
                             noOfCombos={category.noOfCombos}
                         />
@@ -259,11 +290,13 @@ const HomePage = () => {
                         </button>
                     </div>
                 </div>
-
-                <div className="home-page-special-dishes-cards-container">
-                    {currentProducts.map((product, index) => (
-                        <ProductCard key={index} {...product} />
-                    ))}
+                
+                <div className="home-page-special-dishes-scroll-container">
+                    <div className="home-page-special-dishes-cards-container">
+                        {currentProducts.map((product, index) => (
+                            <ProductCard key={index} {...product} />
+                        ))}
+                    </div>
                 </div>
 
                 {/* <p className="home-page-pagination-info">Page {currentPage} of {totalPages}</p> */}
@@ -282,6 +315,7 @@ const HomePage = () => {
                     </p>
                     <button className="home-page-story-services-explore-btn">Explore</button>
                 </div>
+
                 <div className="home-page-story-services-right-container">
                     <div className="home-page-story-services-card">
                         <span className="home-page-story-services-icon"><IoFastFoodOutline/></span>
@@ -301,6 +335,7 @@ const HomePage = () => {
                     <div className="home-page-story-services-card">
                         <span className="home-page-story-services-icon"><CiGift/></span>
                         <h4 className="home-page-story-services-card-title">Gift Cards</h4>
+                        <p className="home-page-story-services-card-content">Get awesome offers and Gift cards on each orders</p>
                     </div>
                 </div>
             </div>

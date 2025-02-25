@@ -61,7 +61,7 @@ const CartPage = ({ cartItems, setCartItems }) => {
                                     </div>
                                     <div>
                                         <h2 className="item-title-cartpage">{item.title}</h2>
-                                        <p className="item-description-cartpage" style={{width:"300px"}}>{item.description}</p>
+                                        <p className="item-description-cartpage">{item.description}</p>
                                     </div>
                                 </div>
                                 <div className="cart-item-right-cartpage">
@@ -90,7 +90,7 @@ const CartPage = ({ cartItems, setCartItems }) => {
                     <p>Total:</p>
                     <h3 className="price"><FaIndianRupeeSign/>{totalPrice.toFixed(2)}</h3>
                 </div>
-                <div className="Buttons" style={{width:"300px"}}>
+                <div className="Buttons">
                     <button onClick={handleCheckout} className="checkout-button">Checkout</button>
                     <button onClick={handleMenu} className="menu-button">Return to Menu</button>
                 </div>

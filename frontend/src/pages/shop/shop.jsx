@@ -27,6 +27,7 @@ function Shop({ cartItems, setCartItems }) {
         console.log("Cart Items Updated in Shop:", cartItems);
     }, [cartItems]); 
 
+    
     const comboItems = menuItems.filter(item => item.category === "combos");
     const snackItems = menuItems.filter(item => item.category === "snacks");
     const bunItems = menuItems.filter(item => item.category === "buns");

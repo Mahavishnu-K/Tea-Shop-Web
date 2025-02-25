@@ -11,6 +11,7 @@
 .cold-card-container{
     max-height: 400px;  
     overflow-y: auto;  
+    overflow-x: hidden; 
 }
 
 .cold-card-container::-webkit-scrollbar {

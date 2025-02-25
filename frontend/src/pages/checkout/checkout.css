@@ -55,6 +55,7 @@
     display: flex;
     width: 100%;
     align-items: flex-end;
+    
   }
   
   .phone-input {
@@ -130,7 +131,7 @@
     flex: 1;
     padding: 20px;
     min-height: 420px;
-    max-width: 400px;
+    width: 400px;
     position: relative;
     margin: auto;
     background: white;
@@ -179,4 +180,45 @@
     border-radius: 5px;
     font-family: "Poppins" , serif;
     margin-top: 15px;
+  }
+
+  @media (max-width: 440px){
+    .checkout-header{
+      padding-top: 20px;
+      margin-bottom: 5%;
+    }
+    .checkout-wrapper{
+      flex-direction: column;
+    }
+    .checkout-container{
+      margin-left: -10px;
+      margin-right: 20px;
+    }
+    .form-grid{
+      grid-template-columns: 1fr;
+    }
+    .phone-container{
+      flex-direction: column;
+    }
+    .phone-group{
+      width: 100%;
+    }
+    .phone-input{
+      width: 100%;
+    }
+    
+    .otp-button{
+      display: block;
+      width: 100%;
+      margin-top: 10px;
+    }
+
+    .checkout-button-confirm{
+      width: 300px;
+    }
+    .order-summary{
+      width: 340px;
+      margin-top: 20px;
+      margin-left: -10px;
+    }
   }

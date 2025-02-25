@@ -2,7 +2,6 @@
     padding: 25px 50px;
 }
 
-
 .shop-header{
     margin-bottom: 40px;
     color: #FF6524;
@@ -10,7 +9,8 @@
 
 .combo-card-container {
     max-height: 400px;  
-    overflow-y: auto;  
+    overflow-y: auto;
+    overflow-x: hidden;  
 }
 
 .combo-card-container::-webkit-scrollbar {

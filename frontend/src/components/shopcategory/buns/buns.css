@@ -11,7 +11,8 @@
 
 .buns-card-container{
     max-height: 400px;  
-    overflow-y: auto;  
+    overflow-y: auto; 
+    overflow-x: hidden;  
 }
 
 .buns-card-container::-webkit-scrollbar {

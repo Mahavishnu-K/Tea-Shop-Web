@@ -1,25 +1,39 @@
 import { useEffect, useState } from "react";
-import { FiPhone, FiSearch, FiShoppingCart } from "react-icons/fi";
+import { FiPhone, FiShoppingCart } from "react-icons/fi";
 import { IoFastFoodOutline } from "react-icons/io5";
 import { BsShop } from "react-icons/bs";
+import { RxCross1 } from "react-icons/rx";
+import { RxHamburgerMenu } from "react-icons/rx";
 import './Navbar.css';
 import { useNavigate } from "react-router-dom";
 
 const Navbar = ({ cartItems }) => {
-  const [menuOpen, setMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
+  const [sidebarVisible, setSidebarVisible] = useState(false);
+
+  const showSidebar = () => {
+    setSidebarVisible(true);
+  };
+
+  const hideSideBar = () => {
+    setSidebarVisible(false);
+  };
+
   const navigate = useNavigate();
   const shopNavigate = () => {
-      navigate('/shop');
-  }
+    navigate('/shop');
+    hideSideBar();
+  };
 
   const homeNavigate = () => {
-    navigate('/')
-  }
+    navigate('/');
+    hideSideBar();
+  };
 
   const cartNavigate = () => {
-      navigate('/cart');
-  }
+    navigate('/cart');
+    hideSideBar();
+  };
 
   useEffect(() => {
     const handleScroll = () => {
@@ -46,11 +60,11 @@ const Navbar = ({ cartItems }) => {
       </div>
 
       <div className="navbar-icons">
-        <div className="navbar-cart">
-
+        {/* Hide these buttons on screens <= 400px */}
+        <div className={`navbar-cart ${window.innerWidth <= 400 ? "hidden" : ""}`}>
           <button onClick={homeNavigate} className="navbar-icon-btn">
             <span>Home</span>
-            <BsShop size={20}/>
+            <BsShop size={20} />
           </button>
 
           <button onClick={shopNavigate} className="navbar-icon-btn">
@@ -60,32 +74,43 @@ const Navbar = ({ cartItems }) => {
 
           <button onClick={cartNavigate} className="navbar-icon-btn">
             <span>Cart</span>
-            <FiShoppingCart size={20}/>
+            <FiShoppingCart size={20} />
             {cartItems.length > 0 && <span className="cart-count">{cartItems.length}</span>}
           </button>
-          
-          
         </div>
+
+        {/* Always show these buttons */}
+        <div onClick={showSidebar} className="navbar-icon-btn-ham hamburger">
+          <RxHamburgerMenu size={24} />
+        </div>
+
         <button onClick={scrollToFooter} className="navbar-contact-btn">
           <FiPhone className="navbar-btn-icon" />
           <span>Contact</span>
         </button>
       </div>
 
-      <div className={`navbar-mobile-menu ${menuOpen ? "navbar-open" : ""}`}>
-        <ul>
-          <li className="navbar-mobile-item">Menu</li>
-        </ul>
+      {/* Sidebar */}
+      <div className={`navbar-mobile-menu ${sidebarVisible ? "navbar-open" : ""}`}>
         <div className="navbar-mobile-actions">
-          <button className="navbar-icon-btn">
-            <FiSearch className="navbar-icon" />
+          <div onClick={hideSideBar} style={{width:"fit-content"}} className="navbar-icon-btn-x">
+            <RxCross1 size={24} />
+          </div>
+
+          <button onClick={homeNavigate} className="navbar-icon-btn">
+            <span>Home</span>
+            <BsShop size={20} />
           </button>
-          <button className="navbar-icon-btn">
-            <FiShoppingCart className="navbar-icon" />
+
+          <button onClick={shopNavigate} className="navbar-icon-btn">
+            <span>Menu</span>
+            <IoFastFoodOutline size={21} />
           </button>
-          <button className="navbar-mobile-contact">
-            <FiPhone className="navbar-btn-icon" />
-            <span>Contact</span>
+
+          <button onClick={cartNavigate} className="navbar-icon-btn">
+            <span>Cart</span>
+            <FiShoppingCart size={20} />
+            {cartItems.length > 0 && <span className="cart-count">{cartItems.length}</span>}
           </button>
         </div>
       </div>

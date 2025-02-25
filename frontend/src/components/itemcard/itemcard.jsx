@@ -38,11 +38,11 @@ export default function ItemCard({ image, title, description, price, cartItems, 
         </div>
         <div>
           <h2 className="item-title">{title}</h2>
-          <p className="item-description" style={{width:"300px"}}>{description}</p>
+          <p className="item-description">{description}</p>
         </div>
       </div>
       <div className="cart-item-right">
-        <div className="quantity-selector" style={{width:"100px"}}>
+        <div className="quantity-selector">
           <button onClick={decreaseQuantity}><FaMinus /></button>
           <span>{quantity}</span>
           <button onClick={increaseQuantity}><FaPlus /></button>

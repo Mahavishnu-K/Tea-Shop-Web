@@ -1,14 +1,15 @@
 import React from 'react'; 
 import ItemCard from './../../itemcard/itemcard';
 import './hotbeverges.css';
-import badamMilk from './../../../assets/badammilk.png';
+import badam from './../../../assets/badammilk.png';
 import blackTea from './../../../assets/blacktea.png';
 import coffee from './../../../assets/coffee.png';
 import normalTea from './../../../assets/normaltea.png';
 
+
 const getImageForItem = (title) => {
     const imageMap = {
-        "Badam Milk": badamMilk,
+        "Badam Milk": badam,
         "Black Tea": blackTea,
         "Coffee": coffee,
         "Normal Tea": normalTea

@@ -1,3 +1,4 @@
+/* Existing styles */
 .navbar-container {
     display: flex;
     align-items: center;
@@ -29,36 +30,6 @@
     -webkit-text-fill-color: transparent;
 }
 
-.navbar-nav-links {
-    display: flex;
-    margin-left: 30%;
-    justify-content: end;
-    list-style: none;
-    margin: 0;
-    padding: 0;
-}
-
-.navbar-nav-item {
-    position: relative;
-    padding: 0.5rem 0;
-    cursor: pointer;
-}
-
-.navbar-nav-item .text-span {
-    display: flex;
-    align-items: center;
-    color: #333;
-    font-weight: 500;
-    transition: color 0.3s ease;
-}
-
-.navbar-nav-item:hover .text-span,
-.navbar-nav-item.navbar-active .text-span {
-    color: #f18a25;
-}
-
-
-/* Icons Section */
 .navbar-icons {
     display: flex;
     align-items: center;
@@ -74,7 +45,7 @@
     font-size: 16px;
     gap: 10px;
     padding: 10px 15px;
-    font-family: "Poppins" ,"serif";
+    font-family: "Poppins", "serif";
     border: none;
     color: #333;
     font-weight: 500;
@@ -82,6 +53,36 @@
     border-radius: 30px;
     cursor: pointer;
     transition: all 0.2s ease;
+}
+
+.navbar-icon-btn-ham {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    color: #333;
+    font-weight: 500;
+    background: transparent;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    font-family: "Poppins", "serif";
+}
+
+.navbar-icon-btn-x{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    right: 20px;
+    top: 0px;
+    color: #333;
+    font-weight: 500;
+    background: transparent;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    font-family: "Poppins", "serif";
 }
 
 .cart-count {
@@ -98,10 +99,18 @@
     align-items: center;
     justify-content: center;
     border-radius: 50%;
-  }
+}
 
 .navbar-icon-btn:hover {
     background: #ece9e9ee;
+    color: #f18a25;
+}
+
+.navbar-icon-btn-ham:hover {
+    color: #f18a25;
+}
+
+.navbar-icon-btn-x:hover{
     color: #f18a25;
 }
 
@@ -110,24 +119,6 @@
     gap: 10px;
 }
 
-.navbar-badge {
-    position: absolute;
-    top: -2px;
-    right: -2px;
-    background: #f18a25;
-    color: white;
-    font-size: 0.75rem;
-    font-weight: bold;
-    min-width: 18px;
-    height: 18px;
-    border-radius: 9px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 0 5px;
-}
-
-/* Contact Button */
 .navbar-contact-btn {
     display: flex;
     align-items: center;
@@ -153,67 +144,61 @@
 }
 
 /* Mobile Menu */
-.navbar-menu-toggle {
-    display: none;
-    background: none;
-    border: none;
-    font-size: 1.5rem;
-    cursor: pointer;
-    padding: 0.5rem;
-    color: #333;
-}
-
 .navbar-mobile-menu {
-    display: none;
-    position: absolute;
-    top: 70px;
+    position: fixed;
+    top: 0;
     left: 0;
     right: 0;
-    background: white;
-    padding: 1rem;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-    transform: translateY(-100%);
-    opacity: 0;
-    transition: all 0.3s ease;
+    height: 33%;
+    background-color: rgba(255, 255, 255, 0.4);
+    backdrop-filter: blur(8px);
+    box-shadow: -10px 0 10px rgba(0, 0, 0, 0.1);
+    transform: translateY(-100%); /* Start off-screen */
+    transition: transform 0.5s ease; /* Smooth transition for transform */
+    z-index: 999;
 }
 
 .navbar-mobile-menu.navbar-open {
-    transform: translateY(0);
-    opacity: 1;
-}
-
-.navbar-mobile-item {
-    padding: 1rem;
-    color: #333;
-    cursor: pointer;
-    transition: color 0.3s ease;
-}
-
-.navbar-mobile-item:hover,
-.navbar-mobile-item.navbar-active {
-    color: #f18a25;
+    transform: translateY(0); /* Slide down to visible position */
 }
 
 .navbar-mobile-actions {
     display: flex;
+    flex-direction: column;
     align-items: center;
+    position: relative;
     gap: 1rem;
     padding: 1rem;
-    border-top: 1px solid #eee;
-    margin-top: 1rem;
+    margin-top: 1.5rem;
 }
 
-.navbar-mobile-contact {
-    flex: 1;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 0.5rem;
-    padding: 0.75rem;
-    background: #f18a25;
-    color: white;
-    border: none;
-    border-radius: 25px;
-    font-weight: 500;
-    cursor: pointer;
+@media screen and (min-width: 441px) {
+    .navbar-icon-btn-ham.hamburger {
+        display: none;
+    }
+}
+
+@media screen and (max-width: 440px) {
+    .navbar-container {
+        gap: 50px;
+        height: 50px;
+    }
+
+    .navbar-logo-text {
+        font-size: 1rem;
+    }
+
+    .navbar-cart {
+        display: none;
+    }
+
+    .navbar-contact-btn {
+        padding: 7px 10px;
+        font-size: 10px;
+    }
+
+    .navbar-icon-btn:hover{
+        background: transparent;
+        color: #f18a25;
+    }
 }

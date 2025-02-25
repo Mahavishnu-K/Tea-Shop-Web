@@ -3,7 +3,7 @@ import { AiFillHeart } from "react-icons/ai";
 import { FaStar } from "react-icons/fa";
 import "./ProductCard.css"; // Import CSS file
 
-const ProductCard = ({ image, name, description, price, rating }) => {
+const ProductCard = ({ image, name, description, price, rating, classna }) => {
     return (
         <div className="product-card">
         {/* Favorite Icon */}
@@ -13,7 +13,7 @@ const ProductCard = ({ image, name, description, price, rating }) => {
 
         {/* Product Image */}
         <div className="image-container">
-            <img src={image} alt={name} className="product-image" />
+            <img src={image} alt={name} className={classna} />
         </div>
 
         {/* Product Details */}

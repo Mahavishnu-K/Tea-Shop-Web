@@ -15,3 +15,24 @@
     cursor: pointer;
     scale: 1.1;
 }
+
+
+@media screen and (max-width: 440px) {
+    .shop-heading{
+        padding-top: 15px;
+        text-align: center;
+        margin: 0 auto; 
+    }
+
+    .shop-combos{
+        padding: 0px;
+    }
+
+    .shop-buns, .shop-cold, .shop-hot, .shop-snacks{
+        padding: 0px;
+    }
+
+    .shop-header{
+        margin-top: 50px;
+    }
+}
