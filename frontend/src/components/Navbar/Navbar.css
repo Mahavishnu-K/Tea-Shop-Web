@@ -149,7 +149,7 @@
     top: 0;
     left: 0;
     right: 0;
-    height: 27%;
+    height: 30%;
     background-color: rgba(255, 255, 255, 0.4);
     backdrop-filter: blur(8px);
     box-shadow: -10px 0 10px rgba(0, 0, 0, 0.1);
@@ -200,5 +200,16 @@
     .navbar-icon-btn:hover{
         background: transparent;
         color: #f18a25;
+    }
+}
+
+@media screen and (max-height: 750px){
+    .navbar-mobile-menu{
+        transform: translateY(-120%); 
+        height: 36%;
+    }
+
+    .navbar-mobile-menu.navbar-open {
+        transform: translateY(0); 
     }
 }
