@@ -230,9 +230,14 @@
   .cart-page-empty{
     margin-top: 40%;
   }
+  .cart-page{
+    height: 100vh;
+  }
+  
   .emptycart{
     width: 200px;
     height: 200px;
     margin-left: 24%;
+    margin-top: 40px;
   }
 }
