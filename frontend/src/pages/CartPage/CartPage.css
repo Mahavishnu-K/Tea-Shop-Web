@@ -31,6 +31,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  flex-direction: column;
 }
 
 .combo-item-list-cartpage{
@@ -155,14 +156,13 @@
   
 .checkout-section{
   margin-top: 4%;
-  margin-left: 10%;
   border-radius: 5px;
   background-color: rgb(252, 232, 218);
   padding: 20px 20px;
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 710px;
+  gap: 700px;
   width: fit-content;
   box-shadow: 3px 3px 15px 2px rgba(0, 0, 0, 0.1);
 }

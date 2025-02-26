@@ -83,10 +83,9 @@ const CartPage = ({ cartItems, setCartItems }) => {
                         </li>
                     ))}
                 </ul>
-            </div>
-            
-            <div className="checkout-section">
-                <div className="total-price">
+
+                <div className="checkout-section">
+                <div className="total-price" style={{width:"150px"}}>
                     <p>Total:</p>
                     <h3 className="price"><FaIndianRupeeSign/>{totalPrice.toFixed(2)}</h3>
                 </div>
@@ -94,7 +93,10 @@ const CartPage = ({ cartItems, setCartItems }) => {
                     <button onClick={handleCheckout} className="checkout-button">Checkout</button>
                     <button onClick={handleMenu} className="menu-button">Return to Menu</button>
                 </div>
+                </div>
             </div>
+            
+            
         </div>
     );
 };
