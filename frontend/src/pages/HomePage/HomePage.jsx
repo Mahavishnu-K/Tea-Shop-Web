@@ -1,18 +1,17 @@
 import AOS from 'aos';
 import 'aos/dist/aos.css';
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { CiDeliveryTruck, CiGift } from "react-icons/ci";
 import { FaChevronLeft, FaChevronRight } from "react-icons/fa6";
 import { IoCartOutline, IoFastFoodOutline } from "react-icons/io5";
 import ProductCard from '../../components/ProductCard/ProductCard';
 import Testimonial from '../../components/Testimonials/Testimonials';
-import heroImg from '../../assets/herosection/hero.png';
-import teacup from '../../assets/herosection/teacup.png';
+import heroImg from '/hero.png';
 import { IoIosArrowRoundForward } from "react-icons/io";
-import herosoori from '../../assets/herosection/herosoori.png';
-import textmsg from '../../assets/herosection/text.png';
-import ecp1 from '../../assets/herosection/Ellipse.png';
+import herosoori from '/herosoori.png';
+import textmsg from '/text.png';
+import ecp1 from '/Ellipse.png';
 import normaltea from '../../assets/normaltea.png';
 import creambun from '../../assets/creambun.png';
 import orangejuice from '../../assets/orangejuice.png';
@@ -20,7 +19,16 @@ import icecream from '../../assets/icecream.png';
 import muffin from '../../assets/muffin.png';
 import tart from '../../assets/tart.png';
 import strawberry from '../../assets/strawberry-cake.png';
-import background from '../../assets/herosection/background.png';
+import background from '/background.png';
+import cake from './../../assets/herosection/cake.svg';
+import cake1 from './../../assets/herosection/cake1.svg';
+import cakeberry from './../../assets/herosection/cakeberry.svg';
+import cone from './../../assets/herosection/cone-ice.svg';
+import icebowl from './../../assets/herosection/icebowl.svg';
+import creambunhero from './../../assets/herosection/korean-milk.svg';
+import redjuice from './../../assets/herosection/redjuice.svg';
+import rollcake from './../../assets/herosection/roll-cake.svg';
+import taquila from './../../assets/herosection/taquila.svg';
 
 import './HomePage.css';
 
@@ -47,7 +55,7 @@ const HomePage = () => {
 
     const products = [
         {
-            image: creambun, // Add correct image path
+            image: creambun, 
             name: "Cream Bun",
             description: "A delicious cream-filled bun.",
             price: 99.0,
@@ -144,7 +152,7 @@ const HomePage = () => {
                 const cleanedImages = prevImages.filter((_, index) => !duplicatedIndexes.includes(index));
 
                 const uniqueIndexes = new Set();
-                while (uniqueIndexes.size < 8) {
+                while (uniqueIndexes.size < 15) {
                     const randomIndex = Math.floor(Math.random() * cleanedImages.length);
                     uniqueIndexes.add(randomIndex);
                 }
@@ -197,7 +205,53 @@ const HomePage = () => {
             window.removeEventListener("resize", handleResize);
         };
     }, []);
+
+    const wrapperRef = useRef(null);
+    const [currentSlideIndex, setCurrentSlideIndex] = useState(0);
+    const imagesLength = 9; 
     
+    useEffect(() => {
+        const wrapper = wrapperRef.current;
+        if (!wrapper) return;
+        
+        const images = Array.from(wrapper.querySelectorAll('img'));
+        
+        images.forEach(img => {
+            img.className = 'slide-image';
+        });
+        
+        // const firstImageClone = images[0].cloneNode(true);
+        // firstImageClone.className = 'slide-image';
+        // wrapper.appendChild(firstImageClone);
+        
+        wrapper.style.display = 'flex';
+        wrapper.style.transition = 'transform 1s ease';
+        wrapper.style.width = `${(images.length + 1) * 100}%`;
+        
+        const interval = setInterval(() => {
+            setCurrentSlideIndex(prevIndex => {
+                const nextIndex = prevIndex + 1;
+                
+                wrapper.style.transition = 'transform 1s ease';
+                wrapper.style.transform = `translateX(-${nextIndex * (100 / (images.length + 1))}%)`;
+                
+                if (nextIndex === images.length) {
+                    setTimeout(() => {
+                        wrapper.style.transition = 'none';
+                        wrapper.style.transform = 'translateX(0)';
+                    }, 1000); 
+                    return 0;
+                }
+                
+                return nextIndex;
+            });
+        }, 2000); 
+        
+        return () => {
+            clearInterval(interval);
+        };
+    }, []);
+
     return (
         <div className="home-page-container">
             {/* Hero Section */}
@@ -236,10 +290,26 @@ const HomePage = () => {
                 </div>
                 
                 <div className='hero-text' >
-                    <pre className='pre1'>The  Best </pre>
+                    
                     <pre className='tea-text'>TEA</pre>
-                    <img src={teacup} className='tea-cup-img' alt="tea cup image" />
-                    <pre className='pre2'>For  you</pre>
+                    <div className='hero-frame-container'>
+                    <div className='hero-frame'>
+                        <div className='hero-frame-in'>
+                            <div className="hero-img-wrapper" ref={wrapperRef}>
+                                <img src={cake} className="slide-image" alt="Cake" />
+                                <img src={cake1} className="slide-image" alt="Cake 1" />
+                                <img src={cakeberry} className="slide-image" alt="Cakeberry" />
+                                <img src={cone} className="slide-image" alt="Cone" />
+                                <img src={icebowl} className="slide-image" alt="Icebowl" />
+                                <img src={creambunhero} className="slide-image" alt="Cream Bun" />
+                                <img src={redjuice} className="slide-image" alt="Red Juice" />
+                                <img src={rollcake} className="slide-image" alt="Roll Cake" />
+                                <img src={taquila} className="slide-image" alt="Taquila" />
+                            </div>
+                        </div>
+                    </div>
+                    </div>
+                    
 
                     <button className='shopnow' onClick={shopNavigate}><pre>         SHOP NOW        <IoIosArrowRoundForward size={24}/></pre></button>
                 </div>

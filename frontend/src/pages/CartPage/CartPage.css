@@ -207,7 +207,6 @@
   cursor: pointer;
 }
   
-/* Responsive Styles */
 @media (max-width: 440px) {
   .cart-item-cartpage{
     gap: 50px;

@@ -12,7 +12,7 @@
     min-height: 650px;
     position: relative;
     overflow: hidden;
-    background: linear-gradient(90deg, rgb(242, 224, 190), rgb(255, 249, 242));
+    background: linear-gradient(120deg, rgb(247, 200, 129), rgb(236, 212, 183));
     border-radius: 10px;
 }
 
@@ -57,8 +57,8 @@
     display: flex;
     flex-direction: column;
     position: absolute;
-    top: 20%;
-    left: 42%;
+    top: 30%;
+    left: 40%;
     align-items: center;
     justify-content: center;
 }
@@ -77,18 +77,50 @@
     opacity: 0;
 }
 
-.hero-text .tea-text:hover + .tea-cup-img{
-    transform: scale(1.05);
-    
+.hero-frame{
+    width: 450px;
+    height: 450px;
+    background-color: white;
+    border-radius: 50%;
 }
 
-.tea-cup-img{
+.hero-frame-in{
+    position: absolute;
+    width: 400px;
+    height: 400px;
+    top: 25px;
+    left: 25px;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    background-color: #facf8c;
+    border-radius: 50%;
+}
+
+.hero-img-wrapper {
+    width: 100%;
+    display: flex;
+    transition: transform 1s ease;
+}
+
+.slide-image {
+    width: 300px;
+    height: 300px;
+    object-fit: contain;
+    transition: transform 1s ease;
+}
+
+.hero-frame-container{
     position: absolute;
     z-index: 19;
-    width: 250px;
-    height: 250px;
-    cursor: pointer;
-    transition: transform 0.3s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s;
+}
+
+.hero-text .tea-text:hover + .hero-frame-container{
+    transform: scale(1.05);
 }
 
 .hero-text .pre1,.pre2{
@@ -101,7 +133,7 @@
 .shopnow{
     border: none;
     position: absolute;
-    top: 100%;
+    top: 320px;
     z-index: 20;
     border-radius: 15px;
     padding: 10px;
@@ -230,7 +262,6 @@
     }
 }
 
-/* Fade out effect (starts 1 second after fade-in completes) */
 @keyframes fadeOut {
     0% {
         opacity: 1;
